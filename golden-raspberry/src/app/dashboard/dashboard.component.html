@@ -1,0 +1,134 @@
+<div class="container">
+
+  <div class="row">
+    <h2 class="text-center">Dashboard</h2>
+    <div class="col mg-6">
+      <div class="card my-3">
+        <div class="card-body">
+          <h3 class="card-title fs-5">List Years with Multiple Winners</h3>
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Year</th>
+                <th scope="col">Win count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let year of yearsWithMultipleWinners">
+                <td>{{ year.year }}</td>
+                <td>{{ year.winnerCount }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col mg-6">
+
+      <div class="card my-3">
+        <div class="card-body">
+          <h3 class="card-title fs-5">Top 3 Studios with Winners</h3>
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Win count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let studio of studiosWithWins">
+                <td>{{ studio.name }}</td>
+                <td>{{ studio.winCount }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card my-3">
+        <div class="card-body">
+          <h3 class="card-title">Producers with Longest and Shortest Interval Between Wins</h3>
+          <h4>Maximum</h4>
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Producer</th>
+                <th scope="col">Interval</th>
+                <th scope="col">Previous year</th>
+                <th scope="col">Next Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producer of producersWithIntervals.max">
+                <td>{{ producer.producer }}</td>
+                <td>{{ producer.interval }}</td>
+                <td>{{ producer.previousWin }}</td>
+                <td>{{ producer.followingWin }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Minimum Interval</h4>
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Producer</th>
+                <th scope="col">Interval</th>
+                <th scope="col">Previous year</th>
+                <th scope="col">Following year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producer of producersWithIntervals.min">
+                <td>{{ producer.producer }}</td>
+                <td>{{ producer.interval }}</td>
+                <td>{{ producer.previousWin }}</td>
+                <td>{{ producer.followingWin }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+      <!-- Painel 4: Vencedores de um ano selecionado -->
+      <div class="card my-3">
+        <div class="card-body">
+          <h3 class="card-title fs-5">List Movie Winner by Year</h3>
+          <div class="mb-3">
+            <label for="yearInput" class="form-label">Type the year</label>
+            <input id="yearInput" type="number" class="form-control" [(ngModel)]="selectedYear" />
+          </div>
+          <button class="btn btn-primary mb-3" (click)="searchByYear()">Buscar</button>
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Year</th>
+                <th scope="col">Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of filteredMovies">
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.title }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
