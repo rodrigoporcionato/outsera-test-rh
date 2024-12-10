@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: ./GoldenRaspberryAwards.Api
+    ports:
+      - "5001:8080" # Porta 8080 do contêiner mapeada para 5001 no host
+    networks:
+      - golden-raspberry-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+  frontend:
+    build:
+      context: ./golden-raspberry
+    ports:
+      - "80:80" # Mapeia o frontend Angular para a porta 80
+    networks:
+      - golden-raspberry-network
+
+networks:
+  golden-raspberry-network:
+    driver: bridge
