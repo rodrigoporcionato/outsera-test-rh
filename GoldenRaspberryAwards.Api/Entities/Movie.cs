@@ -2,7 +2,7 @@ namespace GoldenRaspberryAwards.Api.Entities
 {
     public class Movie
     {
-        public int Id { get; set; } // Identificador único
+        public int Id { get; set; } 
         public int Year { get; set; }
         public string Title { get; set; }
         public string Studios { get; set; }
