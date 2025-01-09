@@ -1,4 +1,3 @@
-Claro! Aqui está a versão mais estilizada e detalhada do seu **README**:
 
 ---
 
